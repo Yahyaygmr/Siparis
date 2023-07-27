@@ -1,0 +1,41 @@
+﻿@model List<OrderViewModel>
+@{
+    ViewData["Title"] = "Hazır";
+}
+
+
+<div class="container text-center">
+    <h3>Sipariş Takip Ekranı</h3>
+    <hr />
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <a asp-area="Admin" asp-controller="Order" asp-action="OnHold" type="button" class="btn btn-outline-primary">Onay Bekleyen Siparişler</a>
+        <a asp-area="Admin" asp-controller="Order" asp-action="Approved" type="button" class="btn btn-outline-primary">Onaylanan Siparişler</a>
+        <a asp-area="Admin" asp-controller="Order" asp-action="Shipped" type="button" class="btn btn-outline-primary">Kargolanan Siparişler</a>
+        <a asp-area="Admin" asp-controller="Order" asp-action="Index" type="button" class="btn btn-outline-primary active">Tüm Siparişler</a>
+
+    </div>
+    <hr />
+   <div class="container">
+        <div class="row shadow my-3">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 border-1 border-dark p-3 bg-light shadow mx-3">
+                    <h5 class="display-5 text-center"></h5>
+                        <img src="https://picsum.photos/200" class="card-img-top" alt="Sipariş Görseli">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.OrderId</h5>
+                            <p class="card-text">Ürün Adı: Ürün 1</p>
+                            <p class="card-text">Miktar: 2</p>
+                            <p class="card-text">Toplam Tutar: $50</p>
+                            <p class="card-text">Sipariş Durumu: Hazırlanıyor</p>
+                            <p class="card-text">Teslim Tarihi: 2023-07-31</p>
+                        </div>
+                        <span class="bg-warning p-2">Shipped</span>
+                        <span class="bg-info p-2">İn Progress</span>
+                </div>
+                
+            }
+       </div>
+   </div>
+</div>
+
