@@ -1,0 +1,53 @@
+﻿@model UpdateOrderViewModel
+@{
+    ViewData["Title"] = "UpdateOrder";
+}
+
+<h1>Sipariş Düzenleme</h1>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form method="post">
+                <input type="hidden" asp-for="OrderId" class="form-control" />
+                <input type="hidden" asp-for="OrderNumber" class="form-control" />
+                <label class="my-2">Telefon No</label>
+                <input type="tel" asp-for="CustomerPhone" class="form-control" />
+                <br />
+                <label class="my-2">Müşteri Adı</label>
+                <input type="text" asp-for="CustomerName" class="form-control" />
+                <br />
+                <label class="my-2">Toplam Fiyat</label>
+                <input type="text" asp-for="OrderTotalPrice" class="form-control" />
+                <br />
+                <label class="my-2">Kapora</label>
+                <input type="text" asp-for="OrderRemainingPayment" class="form-control" />
+                <br />
+                <label class="my-2">Görsel</label>
+                <input type="text" asp-for="OrderImageUrl" class="form-control" />
+                <br />
+                <label class="my-2">Teslim Tarihi</label>
+                <input type="date" asp-for="DeliveryDate" class="form-control" />
+                <br />
+                <label class="my-2">Sipariş Durumu</label>
+                <select class="form-select" asp-for="OrderStatus" aria-label="Default select example">
+                    <option selected>@Model.OrderStatus</option>
+                    <option value="Ölçü Bekleniyor">Ölçü Bekleniyor</option>
+                    <option value="Kesilecek">Kesilecek</option>
+                    <option value="Dikilecek">Dikilecek</option>
+                    <option value="Hazır">Hazır</option>
+                    <option value="Teslim Edildi">Teslim Edildi</option>
+                </select>
+                <br />
+                <label class="my-2">Sipariş</label>
+                <textarea type="text" asp-for="OrderDescription" class="form-control"></textarea>
+                <br />
+                <button class="btn btn-primary">Güncelle</button>
+                <a class="btn btn-dark" asp-controller="Order" asp-action="Index"><i class="bi bi-file-text"></i> İptal</a>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+

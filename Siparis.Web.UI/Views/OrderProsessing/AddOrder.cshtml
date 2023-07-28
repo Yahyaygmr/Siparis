@@ -1,0 +1,42 @@
+﻿@model AddOrderViewModel
+
+@{
+    ViewData["Title"] = "Yeni Sipariş";
+}
+
+<h1>Yeni Sipariş</h1>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form method="post">
+                <label>Telefon No</label>
+                <input type="tel" asp-for="CustomerPhone" class="form-control" />
+                <br />
+                <label>Müşteri Adı</label>
+                <input type="text" asp-for="CustomerName" class="form-control" />
+                <br />
+                <label>Toplam Fiyat</label>
+                <input type="text" asp-for="OrderTotalPrice" class="form-control" />
+                <br />
+                <label>Kapora</label>
+                <input type="text" asp-for="OrderRemainingPayment" class="form-control" />
+                <br />
+                <label>Görsel</label>
+                <input type="file" asp-for="OrderImageUrl" class="form-control" />
+                <br />
+                <label>Teslim Tarihi</label>
+                <input type="date" asp-for="DeliveryDate" class="form-control" />
+                <br />
+                <label>Sipariş</label>
+                <textarea type="text" asp-for="OrderDescription" class="form-control"></textarea>
+                <br />
+                <button class="btn btn-primary">Ekle</button>
+                <a class="btn btn-dark" asp-controller="Order" asp-action="Index"><i class="bi bi-file-text"></i> İptal</a>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+

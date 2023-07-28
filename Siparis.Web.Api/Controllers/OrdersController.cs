@@ -31,6 +31,10 @@ namespace Siparis.Web.Api.Controllers
         [HttpPost]
         public IActionResult OrderAdd(Order order)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             Guid guid = Guid.NewGuid(); // Rastgele bir Guid üretir.
 
             // Guid'in son 6 karakterini alarak, 6 haneli sayı oluşturur.
@@ -46,6 +50,10 @@ namespace Siparis.Web.Api.Controllers
         [HttpPut]
         public IActionResult OrderUpdate(Order order)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             order.OrderDate = DateTime.Now;
             _orderService.TUpdate(order);
             return Ok();

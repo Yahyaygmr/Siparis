@@ -41,20 +41,73 @@ namespace Siparis.Web.UI.Controllers
             }
             return View();
         }
-        public IActionResult WillBeCut()
+        public async Task<IActionResult> WillBeCut()
         {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:44304/api/Orders");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<OrderViewModel>>(jsonData);
+                var lValue = values?.Where(x => x.OrderStatus == "Kesilecek").ToList();
+                lValue?.Reverse();
+                return View(lValue);
+            }
             return View();
         }
-        public IActionResult WillBeSewn()
+        public async Task<IActionResult> WillBeSewn()
         {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:44304/api/Orders");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<OrderViewModel>>(jsonData);
+                var lValue = values?.Where(x => x.OrderStatus == "Dikilecek").ToList();
+                lValue?.Reverse();
+                return View(lValue);
+            }
             return View();
         }
-        public IActionResult Ready()
+        public async Task<IActionResult> Ready()
         {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:44304/api/Orders");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<OrderViewModel>>(jsonData);
+                var lValue = values?.Where(x => x.OrderStatus == "Hazır").ToList();
+                lValue?.Reverse();
+                return View(lValue);
+            }
             return View();
         }
-        public IActionResult Delivered()
+        public async Task<IActionResult> Delivered()
         {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:44304/api/Orders");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<OrderViewModel>>(jsonData);
+                var lValue = values?.Where(x => x.OrderStatus == "Teslim Edildi").ToList();
+                lValue?.Reverse();
+                return View(lValue);
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:44304/api/Orders/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<OrderViewModel>(jsonData);
+                return View(values);
+            }
             return View();
         }
     }
