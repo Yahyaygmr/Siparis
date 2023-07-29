@@ -14,6 +14,8 @@ builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IOrderDal, EfOrderDal>();
 builder.Services.AddScoped<IOrderService, OrderManager>();
 
+
+
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("SiparisApiCors", opts =>
