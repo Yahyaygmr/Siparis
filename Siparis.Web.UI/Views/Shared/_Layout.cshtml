@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Siparis.Web.UI.styles.css" asp-append-version="true" />
+    <style>
+        a:hover{
+            border-bottom: solid 1px black;
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,26 +25,26 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="nav-item mx-2">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="WatingForMeasure">Ölçü Bekleyen</a>
                         </li>
-                         <li class="nav-item">
+                         <li class="nav-item mx-2">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="WillBeCut">Kesilecek</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-2">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="WillBeSewn">Dikilecek</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-2">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Ready">Hazır</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-2">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Delivered">Teslim Edilmiş</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-2">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Index">Tümü</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="OrderProsessing" asp-action="AddOrder">+ Yeni</a>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-dark btn btn-outline-primary" asp-controller="OrderProsessing" asp-action="AddOrder">+ Yeni Sipariş</a>
                         </li>
                     </ul>
                 </div>
@@ -53,7 +59,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - Siparis.Web.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            Copyright &copy; 2023 - Created by <a href="https://yahyayagmur.com/">Yahya Yağmur</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
