@@ -3,5 +3,96 @@
     ViewData["Title"] = Model.CustomerName;
 }
 
-<h1>@Model.CustomerName</h1>
 
+
+<div class="container text-center">
+    <h3>@Model.CustomerName</h3>
+    <hr /><br />
+    <div class="container my-4">
+        <div class="row shadow my-3 d-flex justify-content-between">
+
+            <div class="col-md-5 border-1 border-dark py-3 bg-light shadow my-1">
+                @if (Model.OrderImageUrl == null)
+                {
+                    <img class="card-img-top" style="max-width:490px; object-fit:contain;" src="~/images/yok.png" />
+                }
+                else
+                {
+                    <img src="@Model.OrderImageUrl" class="card-img-top" style="max-width:390px; object-fit:contain;" alt="Sipariş Görseli">
+                }
+            </div>
+            <div class="col-md-7 border-1 border-dark py-3 bg-light shadow">
+                <h3>Sipariş Detayı (<span>@Model.OrderStatus</span>)</h3>
+                <div class="my-3">
+                    <a asp-controller="OrderProsessing" asp-action="UpdateOrder" asp-route-id="@Model.OrderId" class="btn btn-outline-dark form-control">Sipariş Durumunu Değiştir [@Model.OrderStatus]</a>
+                    
+                </div>
+                <div class="mb-5">
+                    <section>
+                        @Model.OrderDescription
+                    </section>
+                </div>
+                <hr /><br />
+                <div class="row">
+                    <div class="col-md-3 my-2">
+                        <hr />
+                        <h5>Teslim Tarihi</h5>
+                        <strong>@Model.DeliveryDate.ToString("dd MMMM dddd")</strong>
+                    </div>
+                    <div class="col-md-3 my-2">
+                        <hr />
+                        <h5>Müşteri Telefon Numarası</h5>
+                        <strong>@Model.CustomerPhone</strong>
+                    </div>
+                    <div class="col-md-2 my-2">
+                        <hr />
+                        <h5>Tutar</h5>
+                        <strong>@Model.OrderTotalPrice.ToString("c")</strong>
+                    </div>
+                    <div class="col-md-2 my-2">
+                        <hr />
+                        <h5>Kapora</h5>
+                        <strong>@Model.OrderRemainingPayment.ToString("c")</strong>
+                    </div>
+                    <div class="col-md-2 my-2 text-danger">
+                        <hr />
+                        <h5>Kalan</h5>
+                        <strong>@Model.OrderDownPayment.ToString("c")</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div>
+    <small>
+       
+    </small>
+</div>
+
+<button type="button" class="btn btn-outline-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-@Model.OrderId">
+    Siparişi Sil
+</button>
+<a class="btn btn-outline-success btn-sm" asp-controller="Order" asp-action="Index">Tüm Siparişler</a>
+<content class="modal fade" id="exampleModal-@Model.OrderId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-danger">
+                <h4>Seçmiş Olduğunuz Sipariş
+                Kalıcı Olarak Silinecektir</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <strong>@Model.CustomerName</strong>
+                <p>#@Model.OrderNumber</p>
+                <p>@Model.OrderDescription</p>
+            </div>
+            <div class="modal-footer">
+                <a asp-controller="OrderProsessing" asp-action="DeleteOrder" asp-route-id="@Model.OrderId">Siparişi Sil</a>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">İptal</button>
+            </div>
+        </div>
+    </div>
+</content>
