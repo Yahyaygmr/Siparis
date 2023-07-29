@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Siparis.EntityLayer.Concrete;
+using Siparis.Web.UI.Models.Login;
 using Siparis.Web.UI.Models.Register;
 
 namespace Siparis.Web.UI.Mapping
@@ -9,6 +10,7 @@ namespace Siparis.Web.UI.Mapping
         public AutoMapperProfile()
         {
             CreateMap<RegisterViewModel, AppUser>().ReverseMap();
+            CreateMap<LoginViewModel, AppUser>().ReverseMap();
         }
     }
 }
