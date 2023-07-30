@@ -26,6 +26,9 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item mx-2">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Index">Tümü</a>
+                        </li>
+                        <li class="nav-item mx-2">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="WatingForMeasure">Ölçü Bekleyen</a>
                         </li>
                          <li class="nav-item mx-2">
@@ -40,12 +43,19 @@
                         <li class="nav-item mx-2">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Delivered">Teslim Edilmiş</a>
                         </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Index">Tümü</a>
-                        </li>
+                 
                         <li class="nav-item mx-2">
                             <a class="nav-link text-dark btn btn-outline-primary" asp-controller="OrderProsessing" asp-action="AddOrder">+ Yeni Sipariş</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-dark" asp-controller="Register" asp-action="Index">+ Yeni Kullanıcı</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="LogOut">Çıkış Yap</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

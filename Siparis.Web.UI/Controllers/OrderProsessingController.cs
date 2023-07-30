@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Siparis.Web.UI.Models.Order;
 
 namespace Siparis.Web.UI.Controllers
 {
+   
     public class OrderProsessingController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
