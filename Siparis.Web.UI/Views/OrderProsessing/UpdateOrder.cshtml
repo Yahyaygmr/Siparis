@@ -24,7 +24,7 @@
                 <label class="my-2">Kapora</label>
                 <input type="text" asp-for="OrderRemainingPayment" class="form-control" />
                 <br />
-                @if(Model.OrderImageUrl==null)
+                @if (Model.OrderImageUrl == null)
                 {
                     <label class="my-2">Görsel</label>
                     <input type="file" asp-for="OrderImageUrl" class="form-control" />
@@ -33,7 +33,7 @@
                 else
                 {
                     <label class="my-2">Görsel</label>
-                    <input type="text" asp-for="OrderImageUrl" class="form-control" readonly/>
+                    <input type="text" asp-for="OrderImageUrl" class="form-control" readonly />
                     <br />
                 }
                 <label class="my-2">Teslim Tarihi</label>
@@ -50,7 +50,7 @@
                 </select>
                 <br />
                 <label class="my-2">Sipariş</label>
-                <textarea type="text" asp-for="OrderDescription" class="form-control"></textarea>
+                <textarea id="OrderDescription1" type="text" asp-for="OrderDescription" class="form-control"></textarea>
                 <br />
                 <button class="btn btn-primary">Güncelle</button>
                 <a class="btn btn-dark" asp-controller="Order" asp-action="Index"><i class="bi bi-file-text"></i> İptal</a>

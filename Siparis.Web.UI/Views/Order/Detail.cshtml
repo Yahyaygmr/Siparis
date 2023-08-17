@@ -25,11 +25,11 @@
                 <h3>Sipariş Detayı (<span>@Model.OrderStatus</span>)</h3>
                 <div class="my-3">
                     <a asp-controller="OrderProsessing" asp-action="UpdateOrder" asp-route-id="@Model.OrderId" class="btn btn-outline-dark form-control">Sipariş Durumunu Değiştir [@Model.OrderStatus]</a>
-                    
+
                 </div>
                 <div class="mb-5">
                     <section>
-                        @Model.OrderDescription
+                        @Html.Raw(Model.OrderDescription)
                     </section>
                 </div>
                 <hr /><br />
@@ -68,7 +68,7 @@
 </div>
 <div>
     <small>
-       
+
     </small>
 </div>
 
@@ -80,14 +80,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header text-danger">
-                <h4>Seçmiş Olduğunuz Sipariş
-                Kalıcı Olarak Silinecektir</h4>
+                <h4>
+                    Seçmiş Olduğunuz Sipariş
+                    Kalıcı Olarak Silinecektir
+                </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <strong>@Model.CustomerName</strong>
                 <p>#@Model.OrderNumber</p>
-                <p>@Model.OrderDescription</p>
+                <p>@Html.Raw(Model.OrderDescription)</p>
             </div>
             <div class="modal-footer">
                 <a asp-controller="OrderProsessing" asp-action="DeleteOrder" asp-route-id="@Model.OrderId">Siparişi Sil</a>
